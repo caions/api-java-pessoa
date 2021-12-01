@@ -14,43 +14,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.impacta.quizapi.model.Pessoa;
-import br.com.impacta.quizapi.repository.PessoaRepository;
+import br.com.impacta.quizapi.model.Pergunta;
+import br.com.impacta.quizapi.repository.PerguntaRepository;
 
 @CrossOrigin(origins="http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping("/pessoa")
-public class PessoaController {
-
+@RequestMapping("/pergunta")
+public class PerguntaController {
+	
 	@Autowired
-	PessoaRepository repository;
+	PerguntaRepository repository;
 
 	@GetMapping("")
-	public List<Pessoa> getAll() {
+	public List<Pergunta> getAll() {
 		return repository.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Pessoa> getOne(@PathVariable int id) {
+	public Optional<Pergunta> getOne(@PathVariable int id) {
 		return repository.findById(id);
 	}
 
 	@PostMapping("")
-	public Pessoa create(@RequestBody Pessoa entrada) {
+	public Pergunta create(@RequestBody Pergunta entrada) {
 		return repository.save(entrada);
 	}
 
 
 	@PutMapping("/{id}")
-	public Pessoa update(@RequestBody Pessoa entrada, @PathVariable int id) {
+	public Pergunta update(@RequestBody Pergunta entrada, @PathVariable int id) {
 		entrada.setId(id);
 		return repository.save(entrada);
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
-		Pessoa pessoa = repository.getById(id);
-		repository.deleteById(pessoa.getId());
+		Pergunta pergunta = repository.getById(id);
+		repository.deleteById(pergunta.getId());
 	}
 
 }
