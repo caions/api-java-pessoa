@@ -4,6 +4,7 @@ package br.com.impacta.quizapi.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -17,7 +18,7 @@ public class Pessoa {
 	private int idade;
 	
 	@JsonBackReference
-	@OneToOne(mappedBy = "pessoa")
+	@ManyToOne
 	private Historico historico;
 	
 	public int getId() {

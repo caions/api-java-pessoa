@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 
@@ -19,12 +20,12 @@ public class Historico {
 	private String execucao;
 	
 	@JsonManagedReference
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "pessoa_id",referencedColumnName = "id")
 	private Pessoa pessoa;
 	
 	@JsonManagedReference
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "pergunta_id", referencedColumnName = "id")
 	private Pergunta pergunta;
 	
