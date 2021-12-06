@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.impacta.quizapi.model.Historico;
 import br.com.impacta.quizapi.repository.HistoricoRepository;
 
-@CrossOrigin(origins = "https://java-quiz-api.herokuapp.com/historico", maxAge = 3600)
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/historico")
 public class HistoricoController {
@@ -35,7 +35,7 @@ public class HistoricoController {
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Historico> getOne(@PathVariable int id){
+	public Optional<Historico> getOne(@PathVariable int id) {
 		return repository.findById(id);
 	}
 
