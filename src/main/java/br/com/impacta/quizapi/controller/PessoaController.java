@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.impacta.quizapi.model.Pessoa;
 import br.com.impacta.quizapi.repository.PessoaRepository;
 
-@CrossOrigin(origins="https://java-quiz-api.herokuapp.com",maxAge = 3600)
+@CrossOrigin(origins="https://java-quiz-api.herokuapp.com/pessoa",maxAge = 3600)
 @RestController
 @RequestMapping("/pessoa")
 public class PessoaController {
